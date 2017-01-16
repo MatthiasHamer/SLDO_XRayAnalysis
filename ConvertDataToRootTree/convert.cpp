@@ -14,10 +14,15 @@ int main(int argc, char **argv) {
 
   char fn_lineReg[200];
   char fn_loadReg[200];
-  sprintf( fn_lineReg, "../data/LineRegulation_%s.csv", argv[1] );
-  sprintf( fn_loadReg, "../data/LoadRegulation_%s.csv", argv[1] );
-
-
+  if( argc <=2 ) {
+    sprintf( fn_lineReg, "../data/LineRegulation_%s.csv", argv[1] );
+    sprintf( fn_loadReg, "../data/LoadRegulation_%s.csv", argv[1] );
+  }
+  else {
+    sprintf( fn_lineReg, "%s/LineRegulation_%s.csv", argv[2], argv[1] );
+    sprintf( fn_loadReg, "%s/LoadRegulation_%s.csv", argv[2], argv[1] );
+  }
+  
   ifstream f_lineReg( fn_lineReg, ios::in );
   ifstream f_loadReg( fn_loadReg, ios::in );
 
