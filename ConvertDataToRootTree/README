@@ -5,4 +5,27 @@ make
 (setup gcc 4.9.3 before, see setup.sh)
 
 
+usage:
+./convert <dose> [path to data directory]
 
+
+provide the dose like this:
+100krad
+1.24Mrad
+
+or alike. The script produces a root file with two trees:
+
+LineRegulation:
+  -> V_in         Input Voltage in V
+  -> I_in         Input Current in A
+  -> V_out1       Output Voltage of the Regulator in Shunt-LDO mode in V  
+  -> V_out2       Output Voltage of the Regulator in LDO mode in V
+  -> Dose         The dose in rad
+  
+LoadRegulation:
+  -> V_in         Input Voltage in V
+  -> I_in         Input Current in A
+  -> V_out1       Output Voltage of the Regulator in Shunt-LDO mode in V
+  -> V_out2       Output Voltage of the Regulator in LDO mode in V
+  -> I_Load       Set Load Current for the Shunt-LDO regulator in A
+  -> I_Iout       Actual Load Current for the Shunt-LDO regulator in A (should be ~-I_Load)
