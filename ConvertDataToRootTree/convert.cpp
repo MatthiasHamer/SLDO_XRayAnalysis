@@ -33,8 +33,8 @@ int main(int argc, char **argv) {
   TTree *tLineReg = new TTree("LineRegulation", "LineRegulation" );
   TTree *tLoadReg = new TTree("LoadRegulation", "LoadRegulation" );
  
-  double vref = atof(argv[1]);
-  double vofs = atof(argv[2]);
+  double vref = atof(argv[1])/1000.;
+  double vofs = atof(argv[2])/1000.;
 
   double line_vin = 0.;
   double line_iin = 0.;
@@ -187,7 +187,6 @@ int main(int argc, char **argv) {
       cout << "WARNING! : Check raw output data for : " << argv[1] << "! Load Regulation measurements read : " << load_vin << " " << load_iin << " " << load_vout << " " << " " << load_iout << " " << load_iout << endl;
       getchar();
     }
-    cout << load_vin << " " << load_iin << " " << load_vout << " " << load_iout << " " << load_vout_sm1 << " " << load_vout_sm2 << " " << load_iout_sm1 << " " << load_iout_sm2 << " " << load_iout_set << " " << load_vref_chip << " " << load_vofs_chip << " " << load_vr1 << " " << load_vref_int << endl;
     tLoadReg->Fill(); 
   
   }
